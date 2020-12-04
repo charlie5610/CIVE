@@ -23,6 +23,10 @@
                     id="animated-asset"
                     src="assets/asset.glb"
                 ></a-asset-item>
+                <a-asset-item
+                    id="animated-asset2"
+                    src="assets/CIVEshell.glb"
+                ></a-asset-item>
             </a-assets>
 
             <a-marker
@@ -43,9 +47,28 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
+                <a-entity
+                    id="bowser-model2"
+                    scale="0.0771994379734773 0.0771994379734773 0.0771994379734773"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-asset2"
+                    class="clickable"
+                    gesture-handler
+                    visible = true
+                        
+                ></a-entity>
             </a-marker>
 
             <a-entity camera></a-entity>
         </a-scene>
+        <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+            <button id="removeSH" onclick="rem()">Remove Shell</button>
+        </div>
+        <script type="text/javascript">
+        shell = document.querySelector("#bowser-model2")
+        function rem(){
+            shell.setAttribute('visible',false);
+        }
+        </script>
     </body>
 </html>

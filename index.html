@@ -62,12 +62,18 @@
             <a-entity camera></a-entity>
         </a-scene>
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-            <button id="removeSH" onclick="rem()">Remove Shell</button>
+            <input id="removeSH" onclick="rem()" type="button" value="Remove Shell">
         </div>
         <script type="text/javascript">
         shell = document.querySelector("#bowser-model2")
         function rem(){
-            shell.setAttribute('visible',false);
+            if (shell.getAttribute("visible") == true){
+                shell.setAttribute('visible',false);
+                document.getElementById('removeSH').setAttribute('value',"Replace Shell")
+            }else{
+                shell.setAttribute("visible",true);
+                document.getElementById('removeSH').setAttribute('value',"Remove Shell")
+            }
         }
         </script>
     </body>
